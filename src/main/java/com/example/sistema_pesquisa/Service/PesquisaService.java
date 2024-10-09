@@ -20,6 +20,12 @@ public class PesquisaService {
         // Aqui você pode adicionar validações se necessário
         return pesquisaRepository.save(pesquisa);
     }
-
+    public boolean deletePesquisa(Long id) {
+        if (pesquisaRepository.existsById(id)) {
+            pesquisaRepository.deleteById(id);
+            return true; // Retorna true se deletou
+        }
+        return false; // Retorna false se não encontrou
+    }
     // Outros métodos para editar e deletar pesquisas
 }
